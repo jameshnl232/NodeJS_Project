@@ -10,10 +10,11 @@ FullStack web application Node.js project using express. This project is built w
 **User Authentication and Authorization**  <br>
 **Handling file Up- and Download**  <br>
 **Validating user input** <br>
+**Deploying with heruko** <br>
 **Other features** <br>
   - Sending emails
   - Data pagination
-  - Handling payment   <br>
-**Deploying with heruko** 
+  - Handling payment   
+
 
 
