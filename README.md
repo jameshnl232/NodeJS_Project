@@ -13,7 +13,7 @@ FullStack web application Node.js project using express. This project is built w
 **Other features** <br>
   - Sending emails
   - Data pagination
-  - Handling payment <br>
-**Deploying with heruko** <br>
+  - Handling payment   <br>
+**Deploying with heruko** 
 
 
