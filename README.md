@@ -1,12 +1,11 @@
 # NodeJS_Project
-FullStack web application Node.js project using express. This project is built with 2 approaches:
-  - View-based rendering
-  - RestAPI/GraphQL
-
+FullStack web application Node.js project using express.
 
 * **Using the Model-View-Controller (MVC) Pattern** <br>
 ***
-* **Using Node.js with NoSQL (MongoDB) and Mongoose** <br>
+* **Using Express with NoSQL (MongoDB) and Mongoose** <br>
+***
+* **Frondend with Bootstrap 5 and ejs as view engine<br>
 ***
 * **Working with Sessions & Cookies** <br>
 ***
@@ -21,7 +20,8 @@ FullStack web application Node.js project using express. This project is built w
 * **Other features** <br>
   - Sending emails
   - Data pagination
-  - Handling payment   
+  - Handling payment
+  - Pdf file generating
 
 
 
