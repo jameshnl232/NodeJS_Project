@@ -1,15 +1,37 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.centered{
-    display: flex;
-    justify-content: center;
+
+
+.hello {
+  color: blue;
+  height: 100%;
 }
 
-.hello{
-    color: blue;
+body {
+  height: 100%; /* Ensure body extends to at least full viewport height */
+  margin: 0;
+  padding: 0;
 }
 
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  margin-top: auto; /* Push footer to the bottom of the viewport */
+}
+
+  #carouselExampleIndicators {
+    max-height: 300px; /* Set maximum height for the carousel */
+  }
+
+  .carousel-item img {
+    max-height: 300px; /* Set maximum height for the carousel images */
+    object-fit: cover; /* Ensure the images cover the entire carousel area */
+  }

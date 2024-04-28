@@ -2,6 +2,7 @@
 "env" : {
         "USER" : "admin",
         "PASSWORD" : "1",
-        "SENDGRID_API_KEY" : "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"
+        "SENDGRID_API_KEY" : "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",
+        "STRIPE_SECRET_KEY" : "sk_test_51PADhNA0bI57Szn8EFV6gu5ZrX32mGoe6o18vMV0cR5jrikOz7gJpylLEonrNTvMl3byqVyNzMSx8lVlbZ2tSg5u00W02QUtRK"
         }
 }

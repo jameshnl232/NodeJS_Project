@@ -5,103 +5,178 @@
 <body>
 <%- include('../includes/navigation.ejs') %>
 
-<section style="background-color: #eee;">
-  <div class="text-center container py-5">
 
-    <div class="row">
+      <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-      <% products.forEach(product => { %>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-            data-mdb-ripple-color="light">
-            <img src="/<%= product.imageUrl %>" alt="<%= product.title %>"
-              class="w-100" />
-            <a href="#!">
-              <div class="mask">
-                <div class="d-flex justify-content-start align-items-end h-100"></div>
-              </div>
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Product name</h5>
-            </a>
-            <a href="" class="text-reset">
-              <p> <%= product.description %></p>
-            </a>
-            <h6 class="mb-3">$61.99</h6>
-          </div>
-          <div class="d-flex justify-content-center align-items-center mb-3">
-            <a href="/admin/edit-product/<%= product._id %>?edit=true" class="btn btn-primary mx-2">Edit</a>
-            <form action="/admin/delete-product/<%= product._id %>" method="POST" style="display: inline;">
-              <button type="submit" class="btn btn-danger mx-2">Delete</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <% }) %> 
+                   <% products.forEach(product => { %>    
+                     <div class="col mb-5 product-card">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="/<%= product.imageUrl %>" alt="<%= product.title %>" />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder"><%= product.title %></h5>
+                                     <p> <%= product.description %></p> 
+                                    <!-- Product price-->
+                                    € <%= product.price %> 
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="d-flex justify-content-center align-items-center mb-3 flex-wrap">
+                                <a href="/admin/edit-product/<%= product._id %>?edit=true" class="btn btn-outline-dark mt-auto m-2">Edit</a>
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <input type="hidden" value="<%= product._id %>" name="productId">
+                                <a href="/product-details/<%= product._id %>" class="btn btn-outline-dark mt-auto m-2">Details</a>
+                                <button type="button" class=" btn btn-outline-dark mt-auto m-2" onclick="deleteProduct(this)">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %> 
 
-      <div class="col-lg-4 col-md-12 mb-4">
-        <div class="card ">
-          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-            data-mdb-ripple-color="light">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
-              class="w-100" />
-            <a href="#!">
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Dummy Product 1</h5>
-            </a>
-            <a href="" class="text-reset">
-              <p>Category</p>
-            </a>
-            <h6 class="mb-3">$61.99</h6>
-          </div>
-        </div>
-      </div>
-
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://www.paulaschoice.de/on/demandware.static/-/Library-Sites-paulachoice/default/dwb0c07cd5/ExpertAdvice/Articles/essential-skincare-routine-overview.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <!-- Product price-->
+                                    $40.00 - $80.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="d-flex justify-content-center align-items-center mb-3">
+                                <a href="#" class="btn btn-outline-dark mt-auto mx-2">Edit</a>
+                                <button type="button" class="btn btn-outline-dark mt-auto mx-2" >Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://hometown.gumlet.io/media/cms/icons/Kitchenware/table-accents.jpg?w=200&dpr=2.6" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Special Item</h5>
+                                  
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$20.00</span>
+                                    $18.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="d-flex justify-content-center align-items-center mb-3">
+                                <a href="#" class="btn btn-outline-dark mt-auto mx-2">Edit</a>
+                                <button type="button" class="btn btn-outline-dark mt-auto mx-2" >Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://hometown.gumlet.io/media/cms/icons/Kitchenware/figurines.jpg?w=200&dpr=2.6" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Sale Item</h5>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$50.00</span>
+                                    $25.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="d-flex justify-content-center align-items-center mb-3">
+                                <a href="#" class="btn btn-outline-dark mt-auto mx-2">Edit</a>
+                                <button type="button" class="btn btn-outline-dark mt-auto mx-2" >Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMkERBcoT5T1yxHEhy1NVQFFkjd6QL6znrzrkkjPKfkg&s" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Popular Item</h5>
+                                   
+                                    <!-- Product price-->
+                                    $40.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="d-flex justify-content-center align-items-center mb-3">
+                                <a href="#" class="btn btn-outline-dark mt-auto mx-2">Edit</a>
+                                <button type="button" class="btn btn-outline-dark mt-auto mx-2" >Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdpWSXOYIOrP_XkDIJj9suslek6u-yf_Oa-e5LeHEnxQ&s" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Sale Item</h5>
+                                    <!-- Product price-->
+                                    <span class="text-muted text-decoration-line-through">$50.00</span>
+                                    $25.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="d-flex justify-content-center align-items-center mb-3">
+                                <a href="#" class="btn btn-outline-dark mt-auto mx-2">Edit</a>
+                                <button type="button" class="btn btn-outline-dark mt-auto mx-2" >Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="https://hometown.gumlet.io/media/cms/icons/Kitchenware/fountains.jpg?w=200&dpr=2.6" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <!-- Product price-->
+                                    $120.00 - $280.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="d-flex justify-content-center align-items-center mb-3">
+                                <a href="#" class="btn btn-outline-dark mt-auto mx-2">Edit</a>
+                                <button type="button" class="btn btn-outline-dark mt-auto mx-2" >Delete</button>
+                            </div>
+                        </div>
+                    </div>
+              </section>
       
 
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card">
-          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-            data-mdb-ripple-color="light">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(17).webp"
-              class="w-100" />
-            <a href="#!">
-              <div class="mask">
-                <div class="d-flex justify-content-start align-items-end h-100"></div>
-              </div>
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Dummy product 2</h5>
-            </a>
-            <a href="" class="text-reset">
-              <p>Category</p>
-            </a>
-            <h6 class="mb-3">$61.99</h6>
-          </div>
-        </div>
-      </div>
+
 
       
+    <%- include('../includes/pagination.ejs', {currentPage: currentPage, nextPage: nextPage, previousPage: previousPage, lastPage: lastPage, hasNextPage: hasNextPage, hasPreviousPage: hasPreviousPage}) %>
 
-    </div>
-  </div>
-</section>
 
+<%- include('../includes/footer') %>
 <%- include('../includes/end.ejs') %>

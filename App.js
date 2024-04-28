@@ -86,7 +86,7 @@ app.set("views", path.join(__dirname, "views"));
 
 // middlewares: static files
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "images")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(express.static(path.join(__dirname, "node_modules/bootstrap/dist/")));
 
 
