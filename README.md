@@ -51,5 +51,6 @@ FullStack eCommerce application Node.js.
 
 ## Demo
 
-Insert gif or link to demo
+![Demo Image](images/demo.jpg)
+
 
