@@ -51,6 +51,6 @@ FullStack eCommerce application Node.js.
 
 ## Demo
 
-![Demo Image](images/demo.jpg)
+![Demo Image](public/images/demo.png)
 
 
