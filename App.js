@@ -17,7 +17,7 @@ const csrf = require("csurf");
 const app = express();
 
 //helmet
-app.use(helmet());
+//app.use(helmet());
 
 //compression
 app.use(compression());
