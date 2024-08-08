@@ -1,3 +1,4 @@
+⭐ # Preview with dummy products
 
 # Project Title
 
