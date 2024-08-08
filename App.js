@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const db = require("./utils/db");
 const User = require("./models/user");
 const { v4: uuidv4 } = require("uuid");
+const helmet = require("helmet");
+const compression = require("compression");
 
 //flash messages
 const flash = require("connect-flash");
@@ -13,6 +15,12 @@ const csrf = require("csurf");
 
 //app
 const app = express();
+
+//helmet
+app.use(helmet());
+
+//compression
+app.use(compression());
 
 //miiddleware multer
 const multer = require("multer");
@@ -144,7 +152,7 @@ app.use((error, req, res, next) => {
 // db connection and server connection
 db()
   .then(() => {
-    app.listen(3000, () => {
+    app.listen(process.env.PORT || 3000, () => {
       console.log("Server is running on port 3000");
       console.log("Connected to database");
     });

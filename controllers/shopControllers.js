@@ -148,7 +148,7 @@ exports.getCheckOut = (req, res, next) => {
         totalPrice: products.reduce((acc, product) => {
           return acc + product.quantity * product.productId.price;
         }, 0),
-        STRIPE_SECRET_KEY: process.env.STRIPE_PUBLIC_KEY,
+        //STRIPE_SECRET_KEY: process.env.STRIPE_PUBLIC_KEY,
       });
     })
     .catch((err) => {

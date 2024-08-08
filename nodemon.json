@@ -1,5 +1,6 @@
 {
 "env" : {
+        "PORT" : 3000,
         "USER" : "admin",
         "PASSWORD" : "1",
         "SENDGRID_API_KEY" : "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",
