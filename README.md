@@ -1,4 +1,4 @@
-# Preview with dummy products ⭐ https://nodejs-project-2cvr.onrender.com/
+# Preview with dummy products ⭐ https://nodejs-project-2cvr.onrender.com/ (might take a few seconds to load)
 
 # Project Title
 
@@ -25,14 +25,6 @@ FullStack eCommerce application Node.js.
 - Handling file uploads for product images.
 - Input validation to ensure data integrity and security.
 
-## Getting Started
-- To run this project locally, follow these steps:
-
-    + Clone the repository.
-    + Install dependencies using npm install.
-    + Set up your MongoDB database and configure the connection in the project.
-    + Configure any necessary environment variables.
-    + Run the application using npm start.
 
 ## What could have been improved
 - Using a Better Frontend Framework like React.
